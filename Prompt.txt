@@ -1,0 +1,78 @@
+I want you to create a simple 3D interactive web application that simulates Land Surface Temperature (LST) over a small mixed-landscape scene.
+
+This is a conceptual educational prototype for heatwave and landscape temperature exploration. It does not need to be scientifically rigorous. Use a simple rule-based model.
+
+Please build the app using:
+- HTML
+- CSS
+- JavaScript
+- Three.js
+
+Main idea:
+The user should be able to change environmental variables and see how Land Surface Temperature changes across a small 3D landscape.
+
+The user must be able to adjust:
+- Air Temperature
+- Sun Intensity
+- Humidity
+
+The landscape should include several land cover types:
+- water
+- forest
+- trees
+- agriculture field
+- grass/open land
+- buildings/urban area
+- optionally roads/paved surfaces
+
+Model behavior:
+Compute LST for each landscape cell using a simplified formula such as:
+LST = air temperature + land cover offset + sun effect - humidity effect + neighborhood effect
+
+Requirements for behavior:
+- water should be cooler
+- forest should be cooler
+- tree areas should be cooler
+- agriculture should be slightly cooler than built-up areas
+- buildings should be hotter
+- paved areas should be hottest
+- cells near water, forest, or trees should get a cooling effect
+- the result should update in real time when sliders move
+
+Use initial example offsets:
+- water: -3.0
+- forest: -2.5
+- trees: -2.0
+- agriculture: -1.0
+- grass/open land: 0.0
+- building: +2.5
+- paved: +3.5
+
+Visualization requirements:
+- show the small landscape in 3D
+- use a rainbow temperature color scale
+- hottest areas should appear red
+- cooler areas should appear blue/cyan
+- include a temperature legend
+- show current min and max LST
+- show current slider values
+- allow orbit/zoom camera controls
+- show tooltip or information for a selected or hovered cell, including land cover type and computed LST
+
+Style requirements:
+- small map only, not large
+- simple low-poly or block-based visual style
+- clean and clear layout
+- beginner-friendly code
+- well-commented code
+
+Please provide a full project with:
+- index.html
+- style.css
+- main.js
+- README.md
+
+Also explain in the README:
+- how to run the project locally
+- how the simplified LST model works
+- where to edit the land cover offsets and formulas

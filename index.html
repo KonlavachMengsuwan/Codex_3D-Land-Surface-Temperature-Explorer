@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Land Surface Temperature Explorer</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="app">
+      <aside class="controls-panel" aria-label="Simulation controls">
+        <div class="panel-header">
+          <p class="eyebrow">Concept model</p>
+          <h1>Land Surface Temperature</h1>
+        </div>
+
+        <section class="control-group" aria-label="Environmental variables">
+          <label class="slider-row" for="airTemp">
+            <span>Air Temperature</span>
+            <output id="airTempValue" for="airTemp">32 C</output>
+          </label>
+          <input id="airTemp" type="range" min="15" max="45" step="1" value="32" />
+
+          <label class="slider-row" for="sunIntensity">
+            <span>Sun Intensity</span>
+            <output id="sunIntensityValue" for="sunIntensity">75%</output>
+          </label>
+          <input id="sunIntensity" type="range" min="0" max="100" step="1" value="75" />
+
+          <label class="slider-row" for="humidity">
+            <span>Humidity</span>
+            <output id="humidityValue" for="humidity">35%</output>
+          </label>
+          <input id="humidity" type="range" min="0" max="100" step="1" value="35" />
+        </section>
+
+        <section class="metrics" aria-label="Current LST range">
+          <div>
+            <span class="metric-label">Min LST</span>
+            <strong id="minTemp">-- C</strong>
+          </div>
+          <div>
+            <span class="metric-label">Max LST</span>
+            <strong id="maxTemp">-- C</strong>
+          </div>
+        </section>
+
+        <section class="legend-block" aria-label="Temperature legend">
+          <div class="legend-title">
+            <span>Cooler</span>
+            <span>Hotter</span>
+          </div>
+          <div class="legend-bar" aria-hidden="true"></div>
+          <div class="legend-values">
+            <span id="legendMin">-- C</span>
+            <span id="legendMax">-- C</span>
+          </div>
+        </section>
+
+        <section class="cell-panel" aria-live="polite">
+          <span class="metric-label">Cell Details</span>
+          <strong id="cellCover">Hover a cell</strong>
+          <span id="cellTemp">LST: -- C</span>
+        </section>
+      </aside>
+
+      <section class="scene-area" aria-label="3D mixed landscape scene">
+        <div id="scene" class="scene"></div>
+        <div id="tooltip" class="tooltip" role="status"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
